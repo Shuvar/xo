@@ -27,3 +27,11 @@ img {
   width: 100%;
 }
 
+button {
+  margin:10px;
+
+}
+.playerWon {
+  color: blueviolet;
+  font-size: 32px;
+}
