@@ -1,4 +1,11 @@
-body { 
+:root {
+  --firstColor: rgb(17, 17, 138);
+  --secondColor: white;
+  --thirdColor: rgb(17, 17, 138);
+
+}
+
+body {
   background: white;
   text-align: center;
 }
@@ -7,13 +14,13 @@ body {
   display: inline-block;
 }
 
-.grid-container { 
+.grid-container {
   display: grid;
-  grid-template: repeat(3,150px) / repeat(3,150px);
+  grid-template: repeat(3, 150px) / repeat(3, 150px);
   align-items: center;
   background: black;
   gap: 5px;
-  
+
 }
 
 .cell {
@@ -27,11 +34,27 @@ img {
   width: 100%;
 }
 
-button {
-  margin:10px;
+.button1 {
+  margin: 20px;
 
 }
+.button2 {
+  margin: 20px;
+  border: red 2.5px solid;
+
+}
+
 .playerWon {
-  color: blueviolet;
-  font-size: 32px;
+  font-size: 45px;
+  animation: sizeChangeInnerCircle 0.9s  infinite;
+  border: 5px solid;
+  /* border-color: transparent; */
+}
+
+@keyframes sizeChangeInnerCircle {
+  0% {color: var(--firstColor); background-color: var(--secondColor); border: 1px solid var(--thirdColor);}
+  50% {color: var(--secondColor); background-color: var(--secondColor); border: 1px solid var(--secondColor);}
+  100% {color: var(--firstColor); background-color: var(--secondColor); border: 1px solid var(--thirdColor);}
+
+
 }

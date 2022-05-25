@@ -18,12 +18,8 @@ function App() {
 
 
   function winCheck(player) {
-    console.log("winCheck");
-    // console.log(currentPlayer);
-
-
     if (tableValue[0][0] === player && tableValue[1][0] === player && tableValue[2][0] === player)
-      return endTheGame(tableValue[0][0]);
+      return endTheGame(player);
     if (tableValue[3][0] === player && tableValue[4][0] === player && tableValue[5][0] === player)
       return endTheGame(player);
     if (tableValue[6][0] === player && tableValue[7][0] === player && tableValue[8][0] === player)
@@ -39,18 +35,13 @@ function App() {
     if (tableValue[2][0] === player && tableValue[4][0] === player && tableValue[6][0] === player)
       return endTheGame(player);
     else return
-
   }
 
   function endTheGame(player) {
     console.log("end");
-    // console.log(playerWon);
-    // setTableValue(ItableValue);
     setCurrentPlayer("X");
     setIcon(shapeX);
     setPlayerWon(player);
-    // alert(`${player} WON!!!!!!`);
-
   }
 
   function newGame() {
@@ -65,24 +56,24 @@ function App() {
     if (playerWon !== null) {
       PlayerIsWon();
     } else {
-    if (cell[0] === null) {
-      cell[0] = currentPlayer;
-      cell[1] = icon;
-      
-      if (currentPlayer === "X") {
-        setCurrentPlayer("O")
-        setIcon(shapeO)
-      } else {
-        setCurrentPlayer("X");
-        setIcon(shapeX)
+      if (cell[0] === null) {
+        cell[0] = currentPlayer;
+        cell[1] = icon;
+        if (currentPlayer === "X") {
+          setCurrentPlayer("O")
+          setIcon(shapeO)
+        } else {
+          setCurrentPlayer("X");
+          setIcon(shapeX)
+        }
       }
-    }};
+    };
   };
 
-useEffect(() => {
-  if (currentPlayer === "X") {
-    winCheck("O")
-  } else winCheck("X");
+  useEffect(() => {
+    if (currentPlayer === "X") {
+      winCheck("O")
+    } else winCheck("X");
   }, [currentPlayer]);
 
 
@@ -91,10 +82,11 @@ useEffect(() => {
       return <>
         {playerWon} won the game
       </>
-    }};
-  
+    }
+  };
 
-  
+
+
 
   return (
     <>
@@ -104,15 +96,15 @@ useEffect(() => {
       <main className="table-container">
         <div className="grid-container">
           {tableValue?.map((sq, i) => {
-            return <div key={i} className="cell" onClick={() => clickHandler(sq,i)}>
+            return <div key={i} className="cell" onClick={() => clickHandler(sq, i)}>
               {sq[1] !== null &&
-              <img src={sq[1]} alt=""></img>}
+                <img src={sq[1]} alt=""></img>}
 
             </div>
           })}
         </div>
-        <button onClick={() => newGame()}>new game</button>
-        <div className="playerWon"><PlayerIsWon /></div>
+        <button className={ playerWon ? "button2" : "button1"} onClick={() => newGame()}>new game</button>
+        <div className={ playerWon ? "playerWon" : null}><PlayerIsWon /></div>
       </main>
 
     </>
