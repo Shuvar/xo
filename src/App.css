@@ -46,15 +46,20 @@ img {
 
 .playerWon {
   font-size: 45px;
+  color: green;
   animation: sizeChangeInnerCircle 0.9s  infinite;
-  border: 5px solid;
+  /* border: 5px solid; */
   /* border-color: transparent; */
 }
 
-@keyframes sizeChangeInnerCircle {
+/* @keyframes sizeChangeInnerCircle {
   0% {color: var(--firstColor); background-color: var(--secondColor); border: 1px solid var(--thirdColor);}
   50% {color: var(--secondColor); background-color: var(--secondColor); border: 1px solid var(--secondColor);}
   100% {color: var(--firstColor); background-color: var(--secondColor); border: 1px solid var(--thirdColor);}
+} */
 
-
+@keyframes sizeChangeInnerCircle {
+  0% {box-shadow: 0px 0px 0px 5px red}
+  50% {box-shadow: 0px 0px 0px 5px white, 0px 0px 0px 10px blue} 
+  100% {box-shadow: 0px 0px 0px 5px red} 
 }
