@@ -29,25 +29,37 @@ body {
   width: 100%;
 }
 
-img {
-  height: 100%;
-  width: 100%;
+.img {
+  position: relative;
+  top: 4%;
+  height: 90%;
+  width: 90%;
+  background-color: white;
+  
+}
+.img_won {
+  position: relative;
+  top: 4%;
+  height: 90%;
+  width: 90%;
+  border: 2px solid rgb(142, 153, 59)
 }
 
 .button1 {
   margin: 20px;
+  box-shadow: 2px 2px 0px 0px black;
 
 }
 .button2 {
   margin: 20px;
-  border: red 2.5px solid;
+  box-shadow: 2px 2px 0px 0px red;
 
 }
 
 .playerWon {
   font-size: 45px;
   color: green;
-  animation: sizeChangeInnerCircle 0.9s  infinite;
+  animation: sizeChangeInnerCircle 0.8s linear infinite running;
   /* border: 5px solid; */
   /* border-color: transparent; */
 }
@@ -58,8 +70,18 @@ img {
   100% {color: var(--firstColor); background-color: var(--secondColor); border: 1px solid var(--thirdColor);}
 } */
 
-@keyframes sizeChangeInnerCircle {
+/* @keyframes sizeChangeInnerCircle {
   0% {box-shadow: 0px 0px 0px 5px red}
-  50% {box-shadow: 0px 0px 0px 5px white, 0px 0px 0px 10px blue} 
+  33% {box-shadow: 0px 0px 0px 5px white, 0px 0px 0px 10px blue} 
+  66% {box-shadow: 0px 0px 0px 5px white, 0px 0px 0px 10px blue, 0px 0px 0px 20px green} 
   100% {box-shadow: 0px 0px 0px 5px red} 
+} */
+
+@keyframes sizeChangeInnerCircle {
+  0% {border-top:5px solid var(--firstColor); border-right:5px solid var(--secondColor); border-bottom:5px solid var(--secondColor); border-left:5px solid var(--secondColor)}
+  25% {border-top:5px solid var(--secondColor); border-right:5px solid var(--firstColor); border-bottom:5px solid var(--secondColor); border-left:5px solid var(--secondColor)} 
+  50% {border-top:5px solid var(--secondColor); border-right:5px solid var(--secondColor); border-bottom:5px solid var(--firstColor); border-left:5px solid var(--secondColor)}
+  75% {border-top:5px solid var(--secondColor); border-right:5px solid var(--secondColor); border-bottom:5px solid var(--secondColor); border-left:5px solid var(--firstColor)} 
+  100% {border-top:5px solid var(--firstColor); border-right:5px solid var(--secondColor); border-bottom:5px solid var(--secondColor); border-left:5px solid var(--secondColor)} 
+
 }
