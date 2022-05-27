@@ -9,7 +9,16 @@ const shapeX = "https://d1nhio0ox7pgb.cloudfront.net/_img/i_collection_png/128x1
 
 
 function App() {
-  let ItableValue = [[null, null,"img_won"], [null, null,"img"], [null, null,"img"], [null, null,"img"], [null, null,"img"], [null, null,"img"], [null, null,"img"], [null, null,"img"], [null, null,"img"]];
+
+
+  let ItableValue = [];
+
+  function creatArray() {
+    for (let i = 0; i <9; i++) {
+      ItableValue.push([null, null,"img"]);
+    }};
+  creatArray();
+
   const [tableValue, setTableValue] = React.useState(ItableValue);
   const [currentPlayer, setCurrentPlayer] = React.useState("X");
   const [icon, setIcon] = React.useState(shapeX);
@@ -38,16 +47,13 @@ function App() {
   }
 
   function endTheGame(player, cell1, cell2, cell3) {
-    console.log("end");
     setCurrentPlayer("X");
     setIcon(shapeX);
     setPlayerWon(player);
-    console.log(tableValue);
 
     tableValue[cell1][2]="img_won";
     tableValue[cell2][2]="img_won";
     tableValue[cell3][2]="img_won";
-    console.log(tableValue);
   }
 
   function newGame() {
@@ -82,18 +88,6 @@ function App() {
     } else winCheck("X");
   }, [currentPlayer]);
 
-
-  function PlayerIsWon() {
-    if (playerWon !== null) {
-      return <>
-        {playerWon} won the game
-      </>
-    }
-  };
-
-
-
-
   return (
     <>
       <header className="App-header">
@@ -107,10 +101,9 @@ function App() {
                 <img className={sq[2]} src={sq[1]} alt=""></img>}
             </div>
           })}
-          {console.log(tableValue)}
         </div>
         <button className={ playerWon ? "button2" : "button1"} onClick={() => newGame()}>new game</button>
-        <div className={ playerWon ? "playerWon" : null}><PlayerIsWon /></div>
+        <div className={ playerWon ? "playerWon" : null}>{playerWon !== null ? `${playerWon} won the game` : null}</div>
       </main>
 
     </>
