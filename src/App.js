@@ -66,7 +66,6 @@ function App() {
 
   function clickHandler(cell) {
     if (playerWon !== null) {
-      PlayerIsWon();
     } else {
       if (cell[0] === null) {
         cell[0] = currentPlayer;
