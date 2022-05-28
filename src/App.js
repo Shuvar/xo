@@ -50,10 +50,11 @@ function App() {
     setCurrentPlayer("X");
     setIcon(shapeX);
     setPlayerWon(player);
-
-    tableValue[cell1][2]="img_won";
-    tableValue[cell2][2]="img_won";
-    tableValue[cell3][2]="img_won";
+    let newArray = tableValue;
+    newArray[cell1][2] = "img_won";
+    newArray[cell2][2] = "img_won";
+    newArray[cell3][2] = "img_won";
+    setTableValue(newArray);
   }
 
   function newGame() {
@@ -63,13 +64,14 @@ function App() {
     setPlayerWon(null);
   }
 
-
-  function clickHandler(cell) {
+  function clickHandler(cell,i) {
     if (playerWon !== null) {
     } else {
       if (cell[0] === null) {
-        cell[0] = currentPlayer;
-        cell[1] = icon;
+        let newArray = tableValue
+        newArray[i][0] = currentPlayer;
+        newArray[i][1] = icon;
+        setTableValue(newArray);
         if (currentPlayer === "X") {
           setCurrentPlayer("O")
           setIcon(shapeO)
@@ -110,4 +112,3 @@ function App() {
 }
 
 export default App;
-
