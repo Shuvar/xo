@@ -104,7 +104,7 @@ function App() {
           })}
         </div>
         <button className={ playerWon ? "button2" : "button1"} onClick={() => newGame()}>new game</button>
-        <div className={ playerWon ? "playerWon" : null}>{playerWon !== null ? `${playerWon} won the game` : null}</div>
+        {playerWon && <div className="playerWon">{playerWon} won the game</div>}
       </main>
 
     </>
