@@ -1,10 +1,11 @@
 import "./App.css";
 import React, { useEffect } from "react";
-import "./X.png"
+// import "../public/icons/X.png";
 
-const shapeO = "https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/128x128/plain/shape_circle.png"
-const shapeX = "https://d1nhio0ox7pgb.cloudfront.net/_img/i_collection_png/128x128/plain/navigate_cross.png";
-// const shapeX = "./X.png";
+// const shapeO = "https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/128x128/plain/shape_circle.png"
+// const shapeX = "https://d1nhio0ox7pgb.cloudfront.net/_img/i_collection_png/128x128/plain/navigate_cross.png";
+const shapeX = "./icons/X.png";
+const shapeO = "./icons/O.png";
 
 
 
